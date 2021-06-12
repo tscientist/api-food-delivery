@@ -15,5 +15,11 @@
    });
  });
  
+ router.get('/createUser', (req, res) => {
+    res.status(200).send({
+      message: 'Usuario criado',
+    });
+  });
+
  module.exports = router;
  
