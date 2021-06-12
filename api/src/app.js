@@ -15,8 +15,9 @@ app.use(express.json({ type: "application/vnd.api+json" }));
 app.use(cors());
 
 app.use(index);
-app.use("/api/", addressRoute);
-app.use("/api/", clientRoute);
+app.use('/api/', addressRoute);
+app.use('/api/', clientRoute);
+app.use('/api/', itemRoute);
 app.use("/api/", restaurantRoute);
 
 module.exports = app;
