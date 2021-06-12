@@ -16,6 +16,7 @@ app.use(cors());
 app.use(index);
 app.use('/api/', addressRoute);
 app.use('/api/', clientRoute);
+app.use('/api/', itemRoute);
 
 module.exports = app;
 
