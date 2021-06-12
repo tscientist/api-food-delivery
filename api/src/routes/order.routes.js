@@ -5,11 +5,11 @@
  */
 
  const router = require('express-promise-router')();
- const itemcontroller = require('../controllers/item.controller');
+ const orderController = require('../controllers/order.controller');
  
  // ==> Definindo as rotas do CRUD - 'Address':
  
  // ==> Rota responsável por criar um novo 'Address': (POST): localhost:3000/api/addAddress
- router.post('/addAddress', itemController.createItem);
+ router.post('/addOrder', orderController.createOrder);
  
  module.exports = router;

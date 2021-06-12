@@ -19,5 +19,6 @@ app.use('/api/', addressRoute);
 app.use('/api/', clientRoute);
 app.use('/api/', itemRoute);
 app.use("/api/", restaurantRoute);
+app.use('/api/', orderRoute);
 
 module.exports = app;
