@@ -9,6 +9,7 @@ const addressRoute = require("./routes/address.routes");
 const clientRoute = require("./routes/client.routes");
 const restaurantRoute = require("./routes/restaurant.routes");
 const itemRoute = require("./routes/item.routes");
+const orderRoute = require("./routes/order.routes");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -20,6 +21,6 @@ app.use("/api/", addressRoute);
 app.use("/api/", clientRoute);
 app.use("/api/", itemRoute);
 app.use("/api/", restaurantRoute);
-app.use('/api/', orderRoute);
+app.use("/api/", orderRoute);
 
 module.exports = app;
