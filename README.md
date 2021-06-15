@@ -6,8 +6,8 @@ AngularJS-powered HTML5 Markdown editor.
 
 ## Tech
 
-- [node.js] - Backend
-- [Express] - fast node.js network app framework
+- [node.js](https://nodejs.org/en/) - Backend
+- [Express](https://expressjs.com/pt-br/) - fast node.js network app framework
 - [Postgresql](https://www.postgresql.org/download/) - A powerful, open source relational database system.
 
 
