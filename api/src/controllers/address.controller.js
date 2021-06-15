@@ -34,6 +34,7 @@ exports.findAddressById = async (req, res) => {
   res.status(200).send(response.rows);
 };
 
+// ==> Método responsável por atualizar um 'Product' pelo 'Id':
 exports.updateAddressById = async (req, res) => {
   const addressId = parseInt(req.params.id);
   const { cep, state, city, street, neighborhood, number, complement } =

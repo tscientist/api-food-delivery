@@ -16,7 +16,44 @@ const createItem = async (req, res) => {
     },
   });
 };
-
 module.exports = {
-    createItem
-}
+  createItem,
+};
+
+// ==> Método responsável por listar todos os 'Products':
+exports.listAllItems = async (req, res) => {
+  const response = await db.query("SELECT * FROM item");
+  res.status(200).send(response.rows);
+};
+
+// => Método responsável por atualizar o item pelo id:
+exports.updateItemById = async (req, res) => {
+  const itemId = parseInt(req.params.id);
+  const { Name,Description,Images,DeliveryTime,Price,IDRestaurant} =
+    req.body;
+
+  const response = await db.query(
+    "UPDATE item SET Nome = $1, Descricao = $2, Imagem = $3, TempoDeEntrega = $4, Preco = $5, IDRestaurante = $6 WHERE idEndereco = $7",
+    [ame,Description,Images,DeliveryTime,Price,IDRestaurant, itemID]
+  );
+
+  res.status(200).send({ message: "Item Updated Successfully!" });
+};
+
+// ==> Método responsável por selecionar 'Product' pelo 'Id':
+exports.findItemById = async (req, res) => {
+  const itemId = parseInt(req.params.id);
+  const response = await db.query(
+    "SELECT * FROM item WHERE iditem = $1",
+    [itemId]
+  );
+  res.status(200).send(response.rows);
+};
+
+// ==> Método responsável por excluir um 'Product' pelo 'Id':
+exports.deleteAddressById = async (req, res) => {
+  const itemId = parseInt(req.params.id);
+  await db.query("DELETE FROM item WHERE IDItem = $1", [itemId]);
+
+  res.status(200).send({ message: "Item deleted successfully!", itemId });
+};
