@@ -2,7 +2,7 @@ const db = require("../config/database");
 
 // ==> Método responsável por criar um novo 'client':
 
-exports.createItem = async (req, res) => {
+const createItem = async (req, res) => {
   const { name, description, images, deliveryTime, price, idrestaurant } =
     req.body;
   const itemNew = await db.query(
@@ -18,12 +18,12 @@ exports.createItem = async (req, res) => {
   });
 };
 
-exports.listAllItems = async (req, res) => {
+const listAllItems = async (req, res) => {
   const response = await db.query("SELECT * FROM item");
   res.status(200).send(response.rows);
 };
 
-exports.findItemById = async (req, res) => {
+const findItemById = async (req, res) => {
   const itemId = parseInt(req.params.id);
   const response = await db.query("SELECT * FROM item WHERE iditem = $1", [
     itemId,
@@ -31,9 +31,9 @@ exports.findItemById = async (req, res) => {
   res.status(200).send(response.rows);
 };
 
-exports.updateItemById = async (req, res) => {
+const updateItemById = async (req, res) => {
   const itemId = parseInt(req.params.id);
-  const { Name, Description, Images, DeliveryTime, Price, IDRestaurant } =
+  const { name, description, images, deliveryTime, price, idrestaurant } =
     req.body;
 
   const response = await db.query(
@@ -44,9 +44,17 @@ exports.updateItemById = async (req, res) => {
   res.status(200).send({ message: "Item Updated Successfully!" });
 };
 
-exports.deleteItemById = async (req, res) => {
+const deleteItemById = async (req, res) => {
   const itemId = parseInt(req.params.id);
   await db.query("DELETE FROM item WHERE IDItem = $1", [itemId]);
 
   res.status(200).send({ message: "Item deleted successfully!", itemId });
 };
+
+module.exports = {
+  deleteItemById, 
+  updateItemById,
+  findItemById,
+  listAllItems,
+  createItem
+}

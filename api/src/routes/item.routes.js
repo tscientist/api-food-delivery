@@ -12,7 +12,7 @@ const itemController = require("../controllers/item.controller");
 // ==> Rota responsável por criar um novo 'Address': (POST): localhost:3000/api/addAddress
 router.post("/addItem", itemController.createItem);
 
-router.get("/item", itemController.listAllItems);
+router.get("/items", itemController.listAllItems);
 
 router.get("/item/:id", itemController.findItemById);
 

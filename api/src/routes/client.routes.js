@@ -12,7 +12,7 @@ const clientController = require("../controllers/client.controller");
 // ==> Rota responsável por criar um novo 'Client': (POST): localhost:3000/api/addClient
 router.post("/addClient", clientController.createClient);
 
-router.get("/client", clientController.listAllClients);
+router.get("/allClients", clientController.listAllClients);
 
 router.get("/client/:id", clientController.findClientById);
 

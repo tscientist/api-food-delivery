@@ -33,7 +33,7 @@ exports.findClientById = async (req, res) => {
 
 exports.updateClientById = async (req, res) => {
   const clientId = parseInt(req.params.id);
-  const { name, password, phone, email, idaddress } = req.body;
+  const { name, password, phone, email } = req.body;
 
   const response = await db.query(
     "UPDATE cliente SET Nome = $1, Senha = $2, Telefone = $3, Email = $4 WHERE IDCliente = $5",
