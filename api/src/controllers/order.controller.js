@@ -1,7 +1,5 @@
 const db = require("../config/database");
 
-// ==> Método responsável por criar um novo 'Address':
-
 exports.createOrder = async (req, res) => {
   const { value, delivery, status, iditem, idrestaurant, idclient } = req.body;
   const orderNew = await db.query(
@@ -27,6 +25,15 @@ exports.findOrderById = async (req, res) => {
   const response = await db.query("SELECT * FROM pedido WHERE idpedido = $1", [
     orderId,
   ]);
+  res.status(200).send(response.rows);
+};
+
+exports.getOrderWithItem = async (req, res) => {
+  const orderId = parseInt(req.params.id);
+  const response = await db.query(
+    "SELECT * FROM pedido p inner join item i on i.IDItem = p.IDItem  WHERE idpedido = $1",
+    [orderId]
+  );
   res.status(200).send(response.rows);
 };
 

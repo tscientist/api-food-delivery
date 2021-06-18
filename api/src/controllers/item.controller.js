@@ -1,7 +1,5 @@
 const db = require("../config/database");
 
-// ==> Método responsável por criar um novo 'client':
-
 const createItem = async (req, res) => {
   const { name, description, images, deliveryTime, price, idrestaurant } =
     req.body;
@@ -52,9 +50,9 @@ const deleteItemById = async (req, res) => {
 };
 
 module.exports = {
-  deleteItemById, 
+  deleteItemById,
   updateItemById,
   findItemById,
   listAllItems,
-  createItem
-}
+  createItem,
+};
