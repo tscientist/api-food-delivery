@@ -1,24 +1,16 @@
-// @ts-nocheck
-/**
- * Arquivo: src/routes/product.routes.js
- * Descrição: arquivo responsável pelas rotas da api relacionado a classe 'Product'.
- */
-
 const router = require("express-promise-router")();
 const orderController = require("../controllers/order.controller");
 
-// ==> Definindo as rotas do CRUD - 'Address':
-
-// ==> Rota responsável por criar um novo 'Address': (POST): localhost:3000/api/addAddress
 router.post("/addOrder", orderController.createOrder);
 
-router.get("/order", orderController.listAllOrders);
+router.get("/orders", orderController.listAllOrders);
 
 router.get("/order/:id", orderController.findOrderById);
 
+router.get("/order/:id/item", orderController.getOrderWithItem);
+
 router.put("/order/:id", orderController.updateOrderById);
 
-// ==> Rota responsável por excluir 'Product' pelo 'Id': (DELETE): localhost:3000/api/products/:id
 router.delete("/order/:id", orderController.deleteOrderById);
 
 module.exports = router;

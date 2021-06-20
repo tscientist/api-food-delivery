@@ -1,7 +1,5 @@
 const db = require("../config/database");
 
-// ==> Método responsável por criar um novo 'restaurant':
-
 exports.createRestaurant = async (req, res) => {
   const { name, email, password, icon, phone } = req.body;
   const restaurantNew = await db.query(
@@ -26,6 +24,15 @@ exports.findRestaurantById = async (req, res) => {
   const restaurantId = parseInt(req.params.id);
   const response = await db.query(
     "SELECT * FROM restaurante WHERE idrestaurante = $1",
+    [restaurantId]
+  );
+  res.status(200).send(response.rows);
+};
+
+exports.getRestaurantWithItems = async (req, res) => {
+  const restaurantId = parseInt(req.params.id);
+  const response = await db.query(
+    "SELECT r.nome as nome, i.nome as item, i.descricao, i.preco, i.tempodeentrega FROM restaurante as r inner join item as i on i.idrestaurante = r.idrestaurante WHERE i.idrestaurante = $1",
     [restaurantId]
   );
   res.status(200).send(response.rows);

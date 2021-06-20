@@ -31,6 +31,15 @@ exports.findClientById = async (req, res) => {
   res.status(200).send(response.rows);
 };
 
+exports.getClientWithOrders = async (req, res) => {
+  const clientId = parseInt(req.params.id);
+  const response = await db.query(
+    "SELECT * FROM cliente as c inner join pedido as p on c.idcliente = p.idcliente  WHERE c.idcliente = $1",
+    [clientId]
+  );
+  res.status(200).send(response.rows);
+};
+
 exports.updateClientById = async (req, res) => {
   const clientId = parseInt(req.params.id);
   const { name, password, phone, email } = req.body;
