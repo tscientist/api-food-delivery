@@ -22,4 +22,4 @@ npm install
 node index.js
 ```
 
-[Scripts para montar o banco](https://drive.google.com/file/d/1XtVRt3GE-Ue6aoGs55HxHgAEZnoMauy7/view?usp=sharing)
+[Scripts para montar o banco](https://drive.google.com/file/d/1CvjNdlvc7FnT_zgcVqs84crF2DfXM8OC/view?usp=sharing)
