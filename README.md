@@ -1,9 +1,6 @@
 # Food Delivery
 ## _Projeto de banco de dados_
 
-Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-AngularJS-powered HTML5 Markdown editor.
-
 ## Tech
 
 - [node.js](https://nodejs.org/en/) - Backend
